@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 11, 2022 at 01:00 PM
+-- Generation Time: Jan 16, 2022 at 06:45 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -29,9 +29,36 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `poke`;
 CREATE TABLE IF NOT EXISTS `poke` (
+  `data` text COLLATE utf8_lithuanian_ci NOT NULL,
   `siuntejas` varchar(120) COLLATE utf8_lithuanian_ci NOT NULL,
   `gavejas` varchar(120) COLLATE utf8_lithuanian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_lithuanian_ci;
+
+--
+-- Dumping data for table `poke`
+--
+
+INSERT INTO `poke` (`data`, `siuntejas`, `gavejas`) VALUES
+('2022-01-16', 'Erikas Abukauskas', 'Abudabis Latvija'),
+('2022-01-16', 'Erikas Abukauskas', 'Abudabis Latvija'),
+('2022-01-16', 'Erikas Abukauskas', 'Abudabis Latvija'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas'),
+('2022-01-16', 'Abudabis Latvija', 'asasa asasas');
 
 -- --------------------------------------------------------
 
