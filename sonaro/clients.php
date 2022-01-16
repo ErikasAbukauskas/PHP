@@ -85,10 +85,11 @@ while($clients = mysqli_fetch_array($result)) {
   
     echo "<td>";
 ?>
+    <!-- // echo "<a href='clients.php?vardas=".$clients["vardas"]." "."clients.php?pavarde=".$clients["pavarde"]."'> Poke </a>"; -->
 
     <form action="clients.php" method="get">
-      <button class="btn btn-primary" type="submit" name="submit"> Poke </button>
-    </form>
+  <button class="btn btn-primary" type="submit" name="submit"> Poke </button>
+</form>
 <?php
     echo "</td>";
   
@@ -98,53 +99,25 @@ while($clients = mysqli_fetch_array($result)) {
   ?>
   
   <?php
- 
+  
   if(isset($_GET["submit"])) {
 
-    
-
-    $vardas = $clients["vardas"];
-
-    $pavarde = $clients["pavarde"];
-
+    if(isset($_GET["siuntejas"]) && isset($_GET["gavejas"]) && !empty($_GET["siuntejas"]) && !empty($_GET["gavejas"])) {
   
-        $cookie_a = $_COOKIE["prisijungta"];
-        $cookie_b = explode("|", $cookie_a );
-        $cookie_id = $cookie_b[0];
-        $cookie_username = $cookie_b[1];  
-        $cookie_name = $cookie_b[2];
-        $cookie_surname = $cookie_b[3]; 
-
-        $date = date("Y-m-d");
-       
-        
-        $result = $conn->query($sql); 
-      
+    $cookie_a = $_COOKIE["prisijungta"];
+    $cookie_b = explode("|", $cookie_a );
+    $cookie_id = $cookie_b[0];
+    $cookie_username = $cookie_b[1];   
 
 
-        $sql = "SELECT 'vardas' AND 'pavarde' FROM `registration` WHERE 'vardas=$vardas' AND 'pavarde='$pavarde'";
-
-        $clients = mysqli_fetch_array($result);
-        
-       
-        // var_dump(    $clients);
-
-     
-      $sql= "INSERT INTO `poke`(`data`,`siuntejas`, `gavejas`) VALUES ('$date','$cookie_name $cookie_surname','$clients[2] $clients[3]')";
-        
-      $res = mysqli_query($conn, $sql);
-
-      if($res) {
-        echo "irasas yra pridetas";
-    } else {
-        echo "kazkas negerai";
-    }
-        }
+    $siuntejas=$_GET["gavejas"];
+    $gavejas=$_GET["siuntejas"];
   
-    
+  $sql= "INSERT INTO `poke`(`siuntejas`, `gavejas`) VALUES ($siuntejas,$gavejas)";
+  $result = $conn->query($sql);
+  }
+  }
 ?>
-
-
 
 
 

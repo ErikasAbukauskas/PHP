@@ -82,8 +82,6 @@ require_once("connection.php");
                         $cookie_array = array (
                             $user_info["ID"],
                             $user_info["prisijungimo_vardas"],
-                            $user_info["vardas"],
-                            $user_info["pavarde"],
                             
                             
                         );
