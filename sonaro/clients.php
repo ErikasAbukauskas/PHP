@@ -98,18 +98,18 @@ while($clients = mysqli_fetch_array($result)) {
         $clients = mysqli_fetch_array($result);
 
 
-        var_dump(  $clients);
+        // var_dump(  $clients);
 
 
       $sql= "INSERT INTO `poke`(`data`,`siuntejas`, `gavejas`) VALUES ('$date','$cookie_name $cookie_surname','$clients[2] $clients[3]')";
 
       $res = mysqli_query($conn, $sql);
 
-      if($res) {
-        echo "irasas yra pridetas";
-    } else {
-        echo "kazkas negerai";
-    }
+    //   if($res) {
+    //     echo "irasas yra pridetas";
+    // } else {
+    //     echo "kazkas negerai";
+    // }
   }
   
 ?>
