@@ -1,9 +1,6 @@
 <?php
-
 require_once("connection.php");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +8,9 @@ require_once("connection.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <?php require_once("includes.php"); ?>
-
     
     <style>
-
         
         .container {
         display: flex;
@@ -37,79 +31,52 @@ require_once("connection.php");
         align-items: stretch;
         margin-top: 50px;
         }
-
         .btn{
             width: 200px;
         }
-
         h3 {
             margin: 50px
         }
-
         .alert {
             font-size: 17px;
             margin-top: 20px;
         }
-
-
     </style>
-
 </head>
 <body>
-
-
 <?php
-
     if(isset($_GET["submit"])) {
-
             if(isset($_GET["username"]) && isset($_GET["password"]) && !empty($_GET["username"]) && !empty($_GET["password"])) {
-
                     $username = $_GET["username"];
                     $password = $_GET["password"];
-
                    
                     $sql = "SELECT * FROM `registration` WHERE prisijungimo_vardas='$username' AND slaptazodis='$password'"; 
-
                     $result = $conn->query($sql);
-
-
-
                     if($result->num_rows == 1) { 
-
                         
                         $user_info = mysqli_fetch_array($result); 
-
                         $cookie_array = array (
                             $user_info["ID"],
                             $user_info["prisijungimo_vardas"],
-                            
-                            
+                            $user_info["vardas"],
+                            $user_info["pavarde"],
+
+
                         );
-
-
                         $cookie_array = implode("|", $cookie_array);
-
                         setcookie("prisijungta", $cookie_array, time() + 3600, "/");
                         
-
                         // var_dump($cookie_array);
-
                         header("Location: clients.php");
-
                     } else {
-
                         $message = "Slapyvardis arba slaptazodis yra neteisingas";
                     }
-
                     // var_dump($result);
-
                 
             } else {
-
                 $message = "Laukeliai yra tušti arba duomenys yra neteisingi";
             }
     }
-
 ?>
 <?php if(!isset($_COOKIE["prisijungta"])) { ?>
     
@@ -129,13 +96,10 @@ require_once("connection.php");
                 <div style="flex-grow: 1">
                     
                     <button class="btn btn-success" type="submit" name="submit"> Prisijungti </button>
-
                     <a class="btn btn-primary" href="registration.php"> Registruotis  </a>
-
                 </div>
             </div>
         </form>
-
         <?php if(isset($message)) { ?>
             <div class="alert alert-danger" role="alert">
                 <?php echo $message;?>
@@ -148,7 +112,6 @@ require_once("connection.php");
     header("Location: clients.php");
     
     }?>
-
     
 </body>
 </html>
