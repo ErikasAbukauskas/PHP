@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php 
+  require "header.php";
+?>
+
+
+    <main>
+      <div class="wrapper-main">
+        <section class="section-default">
+          <?php
+            if (isset($_SESSION['userId'])) {
+              echo '<p class="login-status">You are logged in!</p>';
+            }
+            else {
+              echo '<p class="login-status">You are logged out!</p>';
+            }
+          ?>
+        </section>
+      </div>
+    </main>
+<?php 
+  require "footer.php";
+?>
