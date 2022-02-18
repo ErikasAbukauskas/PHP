@@ -29,7 +29,7 @@ $cookie_b = explode("|", $cookie_a );
 $cookie_id = $cookie_b[0];
 $cookie_username = $cookie_b[1];
 
-$sql = "SELECT * FROM `registration` WHERE ID!=$cookie_id"; 
+$sql = "SELECT * FROM `registration` WHERE 1"; 
 
 
   $result = $conn->query($sql); 
@@ -45,7 +45,7 @@ $sql = "SELECT * FROM `registration` WHERE ID!=$cookie_id";
 
 <h6>
     <?php
-    echo "<a href='clientsEdit.php?ID=".$cookie_id."'> Redaguoti profilį </a>";
+    echo "<a href='clientsEdit.php?ID=".$cookie_id."'> push </a>";
     ?>
 <h6>
 

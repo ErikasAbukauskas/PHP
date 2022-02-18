@@ -108,17 +108,12 @@ if(isset($_GET["submit"])) {
             $sql1 = "SELECT * FROM `registration` WHERE el_pastas='$email'";
         
             $result = $conn->query($sql);
-            $result1 = $conn->query($sql1);
-           
         
             $class="danger";
 
             if($result->num_rows == 1 ) {
 
                 $message = "Toks vartotojas duomenu bazeje jau egzistuoja";
-
-            } else if ($result1->num_rows == 1 ) {
-                
                 $message1 = "Toks el.pastas duomenu bazeje jau egzistuoja";
 
             } else {
@@ -134,7 +129,7 @@ if(isset($_GET["submit"])) {
                 } else if ($password == $repeat_password) {
 
                     $sql = "INSERT INTO `registration`(`prisijungimo_vardas`,`vardas`, `pavarde`, `el_pastas`, `slaptazodis`) 
-                    VALUES ('$username','$name','$surname','$email','$password')";
+                            VALUES ('$username','$name','$surname','$email','$password')";
 
 
                 
@@ -160,6 +155,7 @@ if(isset($_GET["submit"])) {
 
 
     // }
+    
 }
 
 ?>

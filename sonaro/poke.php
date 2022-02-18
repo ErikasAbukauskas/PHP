@@ -39,22 +39,13 @@ require_once("connection.php");
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Data</th>
-        <th scope="col">Siuntejas</th>
-        <th scope="col">Gavejas</th>
+        <th scope="col">Date</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Receiver</th>
       </tr>
     </thead>
     <tbody>
 <?php
-
-
-// if(isset($_GET["search"]) && !empty($_GET["search"])) {
-
-//     $search = $_GET["search"];
-
-//     $sql = "SELECT * FROM `poke` WHERE `siuntejas` LIKE '%".$search."%' OR `gavejas` LIKE '%".$search."%'"; 
-
-// }
 
 
   $sql = "SELECT * FROM `poke` WHERE 1"; 

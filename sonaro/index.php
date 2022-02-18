@@ -1,5 +1,7 @@
 <?php
 require_once("connection.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,24 +47,25 @@ require_once("connection.php");
 </head>
 <body>
 <?php
-    if(isset($_GET["submit"])) {
-            if(isset($_GET["username"]) && isset($_GET["password"]) && !empty($_GET["username"]) && !empty($_GET["password"])) {
-                    $username = $_GET["username"];
-                    $password = $_GET["password"];
+    if(isset($_POST["submit"])) {
+            if(isset($_POST["username"]) && isset($_POST["password"]) && !empty($_POST["username"]) && !empty($_POST["password"])) {
+                    $username = $_POST["username"];
+                    $password = $_POST["password"];
                    
                     $sql = "SELECT * FROM `registration` WHERE prisijungimo_vardas='$username' AND slaptazodis='$password'"; 
                     $result = $conn->query($sql);
                     if($result->num_rows == 1) { 
                         
                         $user_info = mysqli_fetch_array($result); 
+
+                        
                         $cookie_array = array (
                             $user_info["ID"],
                             $user_info["prisijungimo_vardas"],
                             $user_info["vardas"],
                             $user_info["pavarde"],
-
-
                         );
+
                         $cookie_array = implode("|", $cookie_array);
                         setcookie("prisijungta", $cookie_array, time() + 3600, "/");
                         
@@ -79,10 +82,10 @@ require_once("connection.php");
     }
 ?>
 <?php if(!isset($_COOKIE["prisijungta"])) { ?>
-    
+
     <div class="container" >
   
-        <form action="index.php" method="get">
+        <form action="index.php" method="post">
         <h3> PRISIJUNGIMAS <h3>
             <div class="form-group">
                 <label for="username"></label>
